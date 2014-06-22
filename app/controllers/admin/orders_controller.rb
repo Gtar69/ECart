@@ -1,5 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :admin_required
   def index
     # 為什麼Order.all 會出現原始的資料結構?
     @orders = Order.find_each

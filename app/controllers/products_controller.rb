@@ -10,17 +10,18 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     @product = Product.find(params[:id])
-    #current_cart就是一個Cart物件
-    if !current_cart.items.include?(@product)
-    #利用current_cart的method add_prodcut_to_cart把產品加進Cart
-      current_cart.add_product_to_cart(@product)
-      flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
+    #消費者不能購買 庫存數量為0的產品   
+    if @product.quantity > 0
+      if !current_cart.items.include?(@product)
+        current_cart.add_product_to_cart(@product)
+        flash[:notice] = "你已成功將 #{@product.title} 加入購物車"
+      else
+        flash[:warning] = "你的購物車內已有此物品"
+      end
     else
-      flash[:warning] = "你的購物車內已有此物品"
+      flash[:notice] = "產品 #{@product.title}庫存數量為0 您不能購買" 
     end
- 
     redirect_to :back
- 
   end
 
 
