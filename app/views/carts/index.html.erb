@@ -9,12 +9,7 @@
           <th>商品資訊</th>
           <th></th>
           <th>單價</th>
-<<<<<<< HEAD
           <th>欲購買數量</th>
-=======
-          <th>購買數量</th>
-          <th>改變數量</th>
->>>>>>> a955128c9981f798687577928ec239732f747e56
           <th>刪除物品</th>
       
         </tr>
@@ -30,8 +25,6 @@
 
             
             <td> <%= product.price %> </td>
-
-<<<<<<< HEAD
             <td>
               <%= form_tag("/carts/change_item_quantity", method: "post") do%>
                 <%= label_tag(:q, "數量") %>
@@ -40,16 +33,8 @@
                 <%= submit_tag("改變數量") %>
                 <% end %>
             </td>
-
-=======
-    
-            <td><input type="number" name= "kobe" value = <%= CartItem.where(product_id: product.id).take!.count%>> <input type="submit" value="shala
-            "></td>
-          
-            <td><%= link_to("改變數量", change_item_quantity_carts_path(:product_id => product.id, :count => 2),
-                  :method => :post , :class => "btn btn-primary btn-lg btn-danger") %></td>
+        
             
->>>>>>> a955128c9981f798687577928ec239732f747e56
             <td><%= link_to("刪除物品",  delete_item_carts_path(:product_id => product.id) , :method => :post , :class => "btn btn-primary btn-lg btn-danger") %></td>
           </tr>
           <% end %>

@@ -3,9 +3,16 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :admin do 
     resources :products
-    resources :orders
+    resources :orders do
+      member do
+        post :cancel
+        post :ship
+        post :deliver
+        post :return
+      end  
+    end
   end
-
+  
   namespace :account do 
     resources :orders
   end  
@@ -23,8 +30,6 @@ Rails.application.routes.draw do
       post :delete_all
       post :delete_item
       post :change_item_quantity
-<<<<<<< HEAD
-=======
     end
   end
 
@@ -33,7 +38,6 @@ Rails.application.routes.draw do
 
   resources :carts do 
     collection do 
->>>>>>> a955128c9981f798687577928ec239732f747e56
       post :checkout
     end
   end

@@ -20,7 +20,6 @@ class Cart < ActiveRecord::Base
     #clear => destory_all
   end  
 
-<<<<<<< HEAD
   def change_cart_item_quantity(product_id, count, current_cart_id)
     cart_item = CartItem.where("product_id = ? AND cart_id = ?", product_id, current_cart_id).take!
     cart_item.count = count
@@ -30,17 +29,9 @@ class Cart < ActiveRecord::Base
   def total_price(cart_id)
     items.inject(0){|sum, item| sum +item.price*CartItem.where("product_id = ? AND cart_id = ?", 
         item.id, cart_id).take!.count}
-=======
-  def change_cart_item_quantity(product, count)
-    #改變cart_item中的數量
-    c= CartItem.where(product_id: product.id).take!
-    c.count = count
-    c.save
-  end  
+  end
+    
 
-  def total_price
-    items.inject(0){|sum, item| sum +item.price}
->>>>>>> a955128c9981f798687577928ec239732f747e56
-  end  
+
 
 end

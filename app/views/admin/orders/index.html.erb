@@ -6,6 +6,7 @@
       <th>客戶</th>
       <th>訂單生成時間</th>
       <th>訂單狀態</th>
+      <th>更改訂單狀態</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,13 @@
       <td><%= render_order_user_name(order) %></td> 
       <td><%= render_order_created_time(order)%></td>
       <td><%= render_order_state(order) %></td>
+      <td>
+      <%= link_to("發貨", ship_admin_order_path(id: order.token),:class => "btn btn-default btn-sm", :method => :post)%>
+      <%= link_to("貨到", deliver_admin_order_path(id: order.token),:class => "btn btn-default btn-sm", :method => :post)%>
+      <%= link_to("取消訂單", cancel_admin_order_path(id: order.token),:class => "btn btn-default btn-sm", :method => :post)%>
+      <%= link_to("退貨流程", return_admin_order_path(id: order.token),:class => "btn btn-default btn-sm", :method => :post)%>
+      </td>
+
     </tr>
     <% end %>
   </tbody>

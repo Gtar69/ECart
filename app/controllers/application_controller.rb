@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_cart
  
+  # || conditional assignment operator 
+  # "a ||= b" "a || a = b"if a is false, nil or undefined,  then e
+  # evaluate b and set a ti the result.
   def current_cart
     @current_cart ||= find_cart
   end
