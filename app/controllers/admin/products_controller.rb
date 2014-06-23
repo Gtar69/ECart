@@ -15,8 +15,12 @@ class Admin::ProductsController < AdminController
     end
   end
 
+
+
   def edit
     @product = Product.find(params[:id])
+    #@photo = @product.photos.build    
+    #@product.add_photo_to_product(@photo)
   end
 
   def update
