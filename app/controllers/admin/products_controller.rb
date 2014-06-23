@@ -1,5 +1,9 @@
 class Admin::ProductsController < AdminController
 
+  def index
+    @products = Product.all
+  end
+ 
   def new
     @product = Product.new
     @photo = @product.photos.new
@@ -14,8 +18,6 @@ class Admin::ProductsController < AdminController
       render :new
     end
   end
-
-
 
   def edit
     @product = Product.find(params[:id])
@@ -33,9 +35,13 @@ class Admin::ProductsController < AdminController
     end
   end
 
-  def index
-    @products = Product.all
-  end
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy! 
+    flash[:notice] = "你已成功將 #{@product.title} 刪除"
+    redirect_to admin_products_path
+  end  
+
 
   private
 

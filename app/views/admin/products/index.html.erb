@@ -10,7 +10,9 @@
     <tr>
       <th>#</th>
       <th>Product Name</th>
-      <th>Manage Options</th>
+      <th>Inventory Quantity</th>
+      <th>Manage Option</th>
+      <th>Manage Option</th>
     </tr>
   </thead>
   <tbody>
@@ -19,10 +21,11 @@
       <td> <%= product.id %>
       <td> 
         <%= render_product_photo(product.default_photo) %>
-
         <%= link_to(product.title, admin_product_path(product)) %>
        </td>
+       <td><%=product.quantity%></td>
       <td> <%= link_to("Edit", edit_admin_product_path(product)) %> </td>
+      <td> <%= link_to("產品下架", admin_product_path(product), :method => :delete,  :class => "btn btn-primary btn-lg btn-danger") %> </td>
     </tr>
     <% end %>
 
