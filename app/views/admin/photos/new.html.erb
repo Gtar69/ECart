@@ -1,0 +1,18 @@
+
+<h2>新增圖片</h2>
+
+<div>
+
+<%= simple_form_for [:admin, @photo] , :html => { :class => "form form-horizontal"  } do |f|%>
+  <%= f.input :image, :as => :file%> 
+  <%= f.hidden_field :product_id, value: params[:product_id]%> 
+  <div class="form-group">
+    <%= f.submit "Submit", :class => "btn btn-default" , :disable_with => 'Submiting...' %>
+    
+  </div>
+
+<% end %>
+
+
+
+</div>

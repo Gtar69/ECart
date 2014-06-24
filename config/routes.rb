@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do 
-    resources :products
+    resources :products #do
+    #  resources :photos
+    #end
     resources :orders do
       member do
         post :cancel
@@ -15,10 +17,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do 
-    resources :products do
-      resources :photos 
-    end  
-  end
+    resources :photos 
+  end  
+
   namespace :account do 
     resources :orders
   end  

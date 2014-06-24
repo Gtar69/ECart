@@ -21,7 +21,7 @@ class Admin::ProductsController < AdminController
 
   def edit
     @product = Product.find(params[:id])
-    #@photo = @product.photos.build    
+    @photo = @product.photos.build    
     #@product.add_photo_to_product(@photo)
   end
 

@@ -32,18 +32,31 @@
       <%= f.input :price %>
     </div>
   </div>
-  <!-- 20140623 upload more than one photo feature added -->
-  <div>
-    <%= simple_form_for [:admin, @product, @product.photos.build] do |f| %>
-      <%= f.input :image , :as => :file %>
-      <div class="form-group">
-      <%= f.submit "上傳新圖片", :class => "btn btn-default"%>
-      </div>
-    <%end%>
-  </div>  
 
+  
   <div class="form-group">
     <%= f.submit "Submit", :class => "btn btn-default" , :disable_with => 'Submiting...' %>
   </div>
 
 <% end %>
+ <table>
+    <!-- show some photos each vs find_each-->
+    <%= @product.photos.find_each do |photo| %>
+    <td>
+      <table>
+      <td><%= render_product_photo(photo)%></td>
+      <td><%= link_to("刪除圖片", admin_photo_path(:photo_id => photo.id) ,:class => "btn btn-default btn-sm",:method => :delete) %></td>
+      </table>
+    </td>  
+    <% end %>
+  </table>
+  <!-- 20140623 upload more than one photo feature added 
+  <td>
+
+  </td>
+  <!-- 20140624 anotehr method for implentation photo added -->
+  <br>
+  <%= link_to("有圖有真相" ,  new_admin_photo_path(:product_id => @product.id), :class => "btn btn-default btn-sm", :method => :get) %> 
+
+
+
