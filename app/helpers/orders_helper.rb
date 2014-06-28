@@ -1,6 +1,6 @@
 module OrdersHelper
   def render_order_link(order)
-    link_to(order.token, order_path(order.token))
+    link_to(@order.token, order_path(@order.token))
   end  
 
   def render_order_user_name(order)

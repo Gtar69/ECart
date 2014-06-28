@@ -24,7 +24,6 @@ class CartsController < ApplicationController
 
   def checkout  
     #if !current_user
-    #binding.pry  
     @order = current_user.orders.build 
     #binding.pry  
     @info = @order.build_info

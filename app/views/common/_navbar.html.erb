@@ -13,6 +13,18 @@
         </li>
 
       </ul>
+      <div class="navbar-header">
+      <ul>
+        <ul class="navbar-brand">
+        <%= form_tag(search_products_path, method: "post") do %>
+          <%= label_tag(:q, "Search For") %>
+          <%= text_field_tag(:q, nil) %>
+          <%= submit_tag("搜尋產品") %> 
+        <% end %>
+      </ul>
+      </ul>
+      </div>
+
       <ul class="nav navbar-nav navbar-right">
         <li> 
           <%= link_to carts_path do  %>

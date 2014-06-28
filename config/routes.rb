@@ -35,6 +35,9 @@ Rails.application.routes.draw do
   # PhotosController, with resoucre id value passed in params[:id]
   
   resources :products do 
+    collection do
+      post :search
+    end  
     member do 
       post :add_to_cart
     end
@@ -64,6 +67,7 @@ Rails.application.routes.draw do
     member do 
       get :pay_with_credit_card
     end
+    resources :card_charges  
   end
   
 

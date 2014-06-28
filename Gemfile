@@ -36,15 +36,28 @@ gem 'pry-byebug'
 #有限狀態機
 gem 'aasm'
 
+#金流機器
+gem 'stripe'
+
+# 密鑰隱藏
+gem 'settingslogic'
+
+# 產品搜尋功能
+gem 'ransack'
+
 gem "bootstrap-sass"
 gem "simple_form", "3.1.0rc1"
 gem 'carrierwave'
 gem "mini_magick"
 
-
 group :development do 
   gem "annotate"
+  gem "letter_opener"
+  gem 'roadie'
 end
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
