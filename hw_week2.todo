@@ -50,7 +50,7 @@ week3
  ✔ 安裝SettingLogic @done (14-06-28 23:29)
  ✔ 把key放在SettingLogic的yml裡面 @done (14-06-28 23:29)
 作業3.
- ☐
+ ☐ 將CardChargesController中的create method做Service Object的收納整理
 作業4. 
  ✔ 客戶在product/index.html中 可以按照產品名稱搜尋產品 @done (14-06-29 02:36)
  Self-Training 
